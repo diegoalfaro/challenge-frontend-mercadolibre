@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.1.1...v1.1.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* **server:** index html when not match ([78d2fdf](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/commit/78d2fdf6d42410f67c832737fbe0f0d9d387b9a7))
+
+
+
 ## [1.1.1](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.1.0...v1.1.1) (2024-10-24)
 
 
