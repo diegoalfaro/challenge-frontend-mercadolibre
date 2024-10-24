@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { author, port, itemsNumber } from "./config.js";
+import path from "path";
 
 const app = express();
 
@@ -23,6 +24,10 @@ app.get("/api/items", async (req: Request, res: Response) => {
     ?.values?.map(({ name }) => name);
 
   res.json({ author, items, categories });
+});
+
+app.get("*", function (req: Request, res: Response) {
+  res.sendFile(path.resolve("public", "index.html"));
 });
 
 // Starting the server
