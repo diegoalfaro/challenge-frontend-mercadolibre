@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.1.2...v1.2.0) (2024-10-24)
+
+
+### Features
+
+* **api:** configurar api ([#1](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/issues/1)) ([e423fbd](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/commit/e423fbd72a6e91bb8a7e3980f91bcee26c52c8a2))
+
+
+
 ## [1.1.2](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.1.1...v1.1.2) (2024-10-24)
 
 
