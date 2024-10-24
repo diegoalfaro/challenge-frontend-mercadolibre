@@ -63,8 +63,6 @@ export const getFormattedItemById = async (id: string, secure = false) => {
     getItemDescriptionById(id),
   ]);
 
-  console.log("description", description);
-
   const {
     site_id,
     title,

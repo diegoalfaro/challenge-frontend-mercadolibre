@@ -38,6 +38,13 @@ export const getSearchURL = (search: string) => {
   return url;
 };
 
+export const getBuyURL = (itemId: string) => {
+  const url = new URL("https://articulo.mercadolibre.com.ar");
+  const [_, acronym, number] = /([a-zA-Z]+)(\d+)/g.exec(itemId);
+  url.pathname = `${acronym}-${number}`;
+  return url;
+};
+
 export const getItemBreadcrumb = ({
   category,
   title,

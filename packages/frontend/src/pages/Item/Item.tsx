@@ -3,11 +3,15 @@ import { useParams } from "react-router-dom";
 
 import { useItem } from "@hooks/item";
 import Loader from "@components/Loader/Loader";
-import { getItemBreadcrumb, getItemDataHeaderInfo } from "@helpers/items";
+import {
+  getBuyURL,
+  getItemBreadcrumb,
+  getItemDataHeaderInfo,
+} from "@helpers/items";
+import { notNull } from "@helpers/commons";
+import { currencyFormatter } from "@helpers/numbers";
 
 import "./Item.scss";
-import { currencyFormatter } from "@helpers/numbers";
-import { notNull } from "@helpers/commons";
 
 const MainContainer = React.lazy(
   () => import("@components/Grid/MainContainer")
@@ -25,6 +29,7 @@ const Item = () => {
   const { loading, item, category } = useItem(itemId);
 
   const {
+    id,
     title,
     description,
     condition,
@@ -45,7 +50,7 @@ const Item = () => {
     ? currencyFormatter(price?.currency, price?.decimals).format(price?.amount)
     : null;
 
-  const buyHandler = () => console.log("¡Comprado!");
+  const buyHandler = () => (window.location.href = getBuyURL(id).href);
 
   return (
     <Suspense>
