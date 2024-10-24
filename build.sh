@@ -1,3 +1,4 @@
+npm install
 rm -R -f dist packages/*/dist
 npm run build --workspaces
 cp -R packages/backend/dist dist/
