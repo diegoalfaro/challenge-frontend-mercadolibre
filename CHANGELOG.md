@@ -1,4 +1,13 @@
-# 1.1.0 (2024-10-24)
+## [1.1.1](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.1.0...v1.1.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* **build:** fix build ([ae5c373](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/commit/ae5c37361a3b307e84bae5eb5a1c2e7dd7f52561))
+
+
+
+# [1.1.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/3623b565f54e3719375ca1712de792e8dd2272e2...v1.1.0) (2024-10-24)
 
 
 ### Features
