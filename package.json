@@ -1,0 +1,27 @@
+{
+  "name": "challenge-frontend-mercadolibre",
+  "version": "1.0.0",
+  "description": "Examen técnico - Frontend - MercadoLibre",
+  "private": true,
+  "workspaces": [
+    "./packages/backend",
+    "./packages/frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegoalfaro/challenge-frontend-mercadolibre.git"
+  },
+  "author": "Diego Alfaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegoalfaro/challenge-frontend-mercadolibre/issues"
+  },
+  "homepage": "https://github.com/diegoalfaro/challenge-frontend-mercadolibre#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "./build.sh",
+    "start": "./start.sh"
+  }
+}

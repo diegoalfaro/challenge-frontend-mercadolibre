@@ -1,0 +1,107 @@
+.item {
+  container-type: inline-size;
+  container-name: item;
+
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  cursor: pointer;
+
+  .item-image {
+    flex-grow: 0;
+    flex-shrink: 0;
+    grid-area: image;
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    @container item (min-width: 400px) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .item-grid {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    display: grid;
+    grid-template-areas:
+      "price"
+      "title"
+      "place";
+    justify-content: flex-start;
+    width: 100%;
+    align-content: flex-start;
+
+    @container item (min-width: 400px) {
+      gap: 8px;
+    }
+
+    @container item (min-width: 500px) {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "price place"
+        "title .";
+      padding: 12px 0;
+      gap: 6px;
+    }
+
+    .item-price {
+      grid-area: price;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+
+      i.icon {
+        --size: 12px !important;
+      }
+
+      @container item (min-width: 400px) {
+        font-size: 20px;
+
+        i.icon {
+          --size: 16px !important;
+        }
+      }
+    }
+
+    .item-title {
+      grid-area: title;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @container item (min-width: 400px) {
+        white-space: normal;
+        height: 3em;
+      }
+
+      @container item (min-width: 500px) {
+        height: 4.5em;
+      }
+    }
+
+    .item-place {
+      grid-area: place;
+      font-size: 14px;
+      font-weight: 200;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

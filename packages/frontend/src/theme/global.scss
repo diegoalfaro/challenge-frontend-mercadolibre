@@ -1,0 +1,21 @@
+@use "./colors" as colors;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: colors.$bg-color;
+}
+
+a {
+  color: colors.$secondary-color;
+}

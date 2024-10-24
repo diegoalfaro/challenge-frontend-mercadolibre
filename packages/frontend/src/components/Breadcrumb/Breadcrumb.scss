@@ -1,0 +1,18 @@
+$breadcrumb-active-color: #939393;
+$breadcrumb-inactive-color: #616161;
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 4px;
+
+  .breadcrumb-item,
+  .breadcrumb-separator {
+    color: $breadcrumb-active-color;
+  }
+
+  .breadcrumb-item[href] {
+    color: $breadcrumb-inactive-color;
+  }
+}

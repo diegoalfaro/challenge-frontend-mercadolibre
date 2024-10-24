@@ -1,0 +1,6 @@
+@use "sass:string";
+
+@function capitalize($string) {
+  @return string.to-upper-case(string.slice($string, 1, 1)) +
+    string.slice($string, 2);
+}

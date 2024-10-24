@@ -1,0 +1,15 @@
+@use "sass:string";
+@use "./mixins" as mixins;
+@use "./screen" as screen;
+
+:export {
+  @each $breakpoint, $value in screen.$breakpoints {
+    #{string.unquote("breakpoint" + mixins.capitalize($breakpoint))}: $value;
+  }
+  @each $breakpoint, $value in screen.$min {
+    #{string.unquote($breakpoint + "Min")}: $value;
+  }
+  @each $breakpoint, $value in screen.$max {
+    #{string.unquote($breakpoint + "Max")}: $value;
+  }
+}

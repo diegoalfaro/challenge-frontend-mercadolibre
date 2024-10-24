@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "@theme/screen" as screen;
+
+.main-container {
+  width: 100%;
+  max-width: map.get(screen.$min, "lg");
+  margin: 0 auto;
+  padding: 0 16px;
+}

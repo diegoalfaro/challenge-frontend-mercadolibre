@@ -1,0 +1,12 @@
+version: v1
+
+labels:
+  - label: "frontend"
+    sync: true
+    matcher:
+      files: ["packages/frontend/**", "helm/frontend/**", "docker/frontend/**"]
+
+  - label: "backend"
+    sync: true
+    matcher:
+      files: ["packages/backend/**", "helm/backend/**", "docker/backend/**"]
