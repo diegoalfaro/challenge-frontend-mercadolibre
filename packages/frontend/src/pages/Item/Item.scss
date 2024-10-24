@@ -1,6 +1,11 @@
 .item-page {
   margin: 18px 0;
 
+  .loader-container {
+    width: fit-content;
+    margin: 20px auto;
+  }
+
   .breadcrumb-container {
     margin-bottom: 18px;
   }

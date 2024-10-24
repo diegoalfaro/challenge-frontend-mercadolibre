@@ -15,24 +15,24 @@ app.get("/api/items/:id", async (req: Request, res: Response) => {
   url.pathname = `/items/${req.params.id}/description`;
   const fetchDescription = fetch(url);
 
-  const [item, description] = await Promise.all([
-    fetchItem,
-    fetchDescription,
-  ]).then((promises) => Promise.all(promises.map((promise) => promise.json())));
+  const [
+    {
+      id,
+      title,
+      price,
+      currency_id,
+      thumbnail,
+      pictures,
+      condition,
+      sold_quantity,
+      shipping,
+    },
+    description,
+  ] = await Promise.all([fetchItem, fetchDescription]).then((promises) =>
+    Promise.all(promises.map((promise) => promise.json()))
+  );
 
-  const {
-    id,
-    title,
-    price,
-    currency_id,
-    thumbnail,
-    pictures,
-    condition,
-    sold_quantity,
-  } = item;
-
-  res.json({
-    author,
+  const item = {
     id,
     title,
     price: {
@@ -45,9 +45,14 @@ app.get("/api/items/:id", async (req: Request, res: Response) => {
       req.secure ? secure_url : url
     ),
     condition,
-    free_shipping: item.shipping.free_shipping,
+    free_shipping: shipping.free_shipping,
     sold_quantity,
     description: description.text,
+  };
+
+  res.json({
+    author,
+    item,
   });
 });
 
