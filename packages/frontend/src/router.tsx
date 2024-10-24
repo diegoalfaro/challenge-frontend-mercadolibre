@@ -27,14 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/items",
-        Component: (props) => {
-          console.log("props", props);
-          return (
-            <Suspense>
-              <Items />
-            </Suspense>
-          );
-        },
+        element: (
+          <Suspense>
+            <Items />
+          </Suspense>
+        ),
       },
       {
         path: "/items/:itemId",

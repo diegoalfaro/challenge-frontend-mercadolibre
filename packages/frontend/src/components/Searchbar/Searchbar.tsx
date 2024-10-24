@@ -30,6 +30,14 @@ const Searchbar = ({ formId, inputId, buttonId }: SearchbarProps) => {
         type="text"
         name="search"
         autoComplete="off"
+        required
+        placeholder="¿Qué estás buscando?"
+        onInvalid={() =>
+          inputRef.current.setCustomValidity(
+            "Ingresá lo que estás buscando para que podamos ayudarte"
+          )
+        }
+        onInput={() => inputRef.current.setCustomValidity("")}
         defaultValue={searchValue}
       />
       <button id={buttonId} type="submit">

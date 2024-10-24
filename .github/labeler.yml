@@ -4,9 +4,9 @@ labels:
   - label: "frontend"
     sync: true
     matcher:
-      files: ["packages/frontend/**", "helm/frontend/**", "docker/frontend/**"]
+      files: ["packages/frontend/**"]
 
   - label: "backend"
     sync: true
     matcher:
-      files: ["packages/backend/**", "helm/backend/**", "docker/backend/**"]
+      files: ["packages/backend/**"]

@@ -1,4 +1,6 @@
-export const currencyFormatter = new Intl.NumberFormat("es-AR", {
-  style: "currency",
-  currency: "ARS",
-});
+export const currencyFormatter = (currency: string, digits: number) =>
+  new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency,
+    maximumSignificantDigits: digits,
+  });

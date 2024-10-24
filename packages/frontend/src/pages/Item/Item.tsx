@@ -1,4 +1,8 @@
 import React, { Suspense } from "react";
+import { useParams } from "react-router-dom";
+
+import { useItem } from "@hooks/item";
+import Loader from "@components/Loader/Loader";
 
 import "./Item.scss";
 
@@ -10,21 +14,31 @@ const Breadcrumb = React.lazy(
 );
 
 const Item = () => {
+  const { itemId } = useParams();
+  const { loading, item } = useItem(itemId);
+  const { title } = item || {};
+
   const breadcrumbItems = [
-    { label: "Computadoras", href: "/" },
-    { label: "Computadoras", href: "/" },
-    { label: "Computadoras", href: "/" },
-    { label: "Computadoras", href: "/" },
+    { label: "Productos", href: "/" },
+    { label: title, href: "/" },
   ];
 
   return (
     <Suspense>
       <div className="item-page">
         <MainContainer>
-          <div className="breadcrumb-container">
-            <Breadcrumb items={breadcrumbItems} />
-          </div>
-          <div className="item-details-container"></div>
+          {!item || loading ? (
+            <div className="loader-container">
+              <Loader />
+            </div>
+          ) : (
+            <>
+              <div className="breadcrumb-container">
+                <Breadcrumb items={breadcrumbItems} />
+              </div>
+              <div className="item-details-container"></div>
+            </>
+          )}
         </MainContainer>
       </div>
     </Suspense>

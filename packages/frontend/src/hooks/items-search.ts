@@ -1,53 +1,31 @@
 import { useEffect, useState } from "react";
 
+import itemsService from "@services/items-service";
+
 export const useItemsSearch = (query: string) => {
-  const [loading, setLoading] = useState(false);
+  const [{ loading, items, categories }, set] = useState({
+    loading: false,
+    categories: [],
+    items: [],
+  });
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    if (query) {
+      set((value) => ({ ...value, loading: true }));
+      itemsService
+        .searchItems(query)
+        .then((res) => res.json())
+        .then(({ items, categories }) =>
+          set((value) => ({ ...value, items, categories, loading: false }))
+        );
+    } else {
+      set((value) => ({ ...value, categories: [], items: [], loading: false }));
+    }
+
+    return () => {
+      set((value) => ({ ...value, categories: [], items: [], loading: false }));
+    };
   }, [query]);
 
-  const items = [
-    {
-      id: 313123,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut mollis lectus, rutrum molestie ex. Cras maximus blandit nunc scelerisque commodo. Quisque mattis porttitor augue, eu vehicula justo vestibulum nec. Maecenas tellus lectus, varius et odio at, commodo",
-      price: 4344,
-      imgSrc:
-        "https://gratisography.com/wp-content/uploads/2024/10/gratisography-birthday-dog-sunglasses-1036x780.jpg",
-      place: "Capital Federal",
-    },
-    {
-      id: 343,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut mollis lectus, rutrum molestie ex. Cras maximus blandit nunc scelerisque commodo. Quisque mattis porttitor augue, eu vehicula justo vestibulum nec. Maecenas tellus lectus, varius et odio at, commodo",
-      price: 4344,
-      imgSrc:
-        "https://gratisography.com/wp-content/uploads/2024/10/gratisography-birthday-dog-sunglasses-1036x780.jpg",
-      place: "Capital Federal",
-    },
-    {
-      id: 2343,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut mollis lectus, rutrum molestie ex. Cras maximus blandit nunc scelerisque commodo. Quisque mattis porttitor augue, eu vehicula justo vestibulum nec. Maecenas tellus lectus, varius et odio at, commodo",
-      price: 4344,
-      imgSrc:
-        "https://gratisography.com/wp-content/uploads/2024/10/gratisography-birthday-dog-sunglasses-1036x780.jpg",
-      place: "Capital Federal",
-    },
-    {
-      id: 313123,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut mollis lectus, rutrum molestie ex. Cras maximus blandit nunc scelerisque commodo. Quisque mattis porttitor augue, eu vehicula justo vestibulum nec. Maecenas tellus lectus, varius et odio at, commodo",
-      price: 4344,
-      imgSrc:
-        "https://gratisography.com/wp-content/uploads/2024/10/gratisography-birthday-dog-sunglasses-1036x780.jpg",
-      place: "Capital Federal",
-    },
-  ];
-
-  return { loading, items };
+  return { loading, items, categories };
 };
