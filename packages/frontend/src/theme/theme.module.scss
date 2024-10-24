@@ -1,6 +1,7 @@
 @use "sass:string";
 @use "./mixins" as mixins;
 @use "./screen" as screen;
+@use "./colors" as colors;
 
 :export {
   @each $breakpoint, $value in screen.$breakpoints {
@@ -12,4 +13,7 @@
   @each $breakpoint, $value in screen.$max {
     #{string.unquote($breakpoint + "Max")}: $value;
   }
+  bgColor: colors.$bg-color;
+  primaryColor: colors.$primary-color;
+  secondaryColor: colors.$secondary-color;
 }

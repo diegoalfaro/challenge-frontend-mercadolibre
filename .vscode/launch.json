@@ -5,8 +5,16 @@
       "name": "Debug Backend",
       "type": "node",
       "request": "launch",
-      "runtimeArgs": ["-r", "ts-node/register"],
-      "sourceMaps": true
+      "cwd": "${workspaceRoot}/packages/backend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "program": "src/index.ts",
+      "restart": true,
+      "stopOnEntry": false,
+      "sourceMaps": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"]
     }
   ]
 }

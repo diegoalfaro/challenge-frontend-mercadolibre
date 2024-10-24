@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import itemsService from "@services/items-service";
 
 export const useItem = (itemId: string) => {
-  const [{ loading, item }, set] = useState({
+  const [{ loading, item, category }, set] = useState({
     loading: false,
     item: undefined,
+    category: undefined,
   });
 
   useEffect(() => {
@@ -14,17 +15,27 @@ export const useItem = (itemId: string) => {
       itemsService
         .getItemById(itemId)
         .then((res) => res.json())
-        .then(({ item }) =>
-          set((value) => ({ ...value, item, loading: false }))
+        .then(({ item, category }) =>
+          set((value) => ({ ...value, item, category, loading: false }))
         );
     } else {
-      set((value) => ({ ...value, item: undefined, loading: false }));
+      set((value) => ({
+        ...value,
+        item: undefined,
+        category: undefined,
+        loading: false,
+      }));
     }
 
     return () => {
-      set((value) => ({ ...value, item: undefined, loading: false }));
+      set((value) => ({
+        ...value,
+        item: undefined,
+        category: undefined,
+        loading: false,
+      }));
     };
   }, [itemId]);
 
-  return { loading, item };
+  return { loading, item, category };
 };
