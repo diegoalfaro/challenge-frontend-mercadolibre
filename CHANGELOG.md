@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.3.0...v1.4.0) (2024-10-25)
+
+
+### Features
+
+* **skeletons:** cambiar loaders por skeletons ([#3](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/issues/3)) ([e381437](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/commit/e38143701431ca0c7c900b4dc222239a47ae1be4))
+
+
+
 # [1.3.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.2.0...v1.3.0) (2024-10-24)
 
 
