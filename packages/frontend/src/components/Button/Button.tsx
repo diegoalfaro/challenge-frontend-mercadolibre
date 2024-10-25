@@ -4,21 +4,22 @@ import * as theme from "@theme/theme.module.scss";
 import "./Button.scss";
 
 interface ButtonProps {
+  disabled?: boolean;
   onClick?: () => any;
   color?: string;
 }
 
 const Button = ({
   children,
-  onClick,
   color = theme.secondaryColor,
+  ...props
 }: React.PropsWithChildren<ButtonProps>) => {
   const style = {
     "--color": color,
   } as CSSProperties;
 
   return (
-    <button className="btn" onClick={onClick} style={style}>
+    <button {...props} className="btn" style={style}>
       {children}
     </button>
   );

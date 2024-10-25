@@ -38,7 +38,15 @@ export const getSearchURL = (search: string) => {
   return url;
 };
 
-export const getBuyURL = (itemId: string) => {
+export const getBuyURL = (itemId: string, quantity = 1) => {
+  const url = new URL("https://www.mercadolibre.com.ar");
+  url.pathname = "/gz/checkout/buy";
+  url.searchParams.append("item_id", itemId);
+  url.searchParams.append("quantity", quantity.toString());
+  return url;
+};
+
+export const getItemURL = (itemId: string) => {
   const url = new URL("https://articulo.mercadolibre.com.ar");
   const [_, acronym, number] = /([a-zA-Z]+)(\d+)/g.exec(itemId);
   url.pathname = `${acronym}-${number}`;

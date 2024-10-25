@@ -4,15 +4,6 @@
 .item-page {
   margin: 18px 0;
 
-  .loader-container {
-    width: fit-content;
-    margin: 32px auto;
-  }
-
-  .breadcrumb-container {
-    margin-bottom: 18px;
-  }
-
   .item-details-container {
     display: flex;
     flex-direction: row;
@@ -28,89 +19,6 @@
     @media (min-width: map.get(screen.$min, "md")) {
       gap: 32px;
       padding: 32px;
-    }
-
-    .item-details-slider-container {
-      flex-basis: 520px;
-      flex-grow: 0;
-      flex-shrink: 0;
-      max-width: 100%;
-
-      .item-details-slider {
-        width: 100%;
-        max-width: 520px;
-
-        .slick-track {
-          display: flex !important;
-        }
-
-        .slick-slide {
-          width: 100%;
-          height: inherit !important;
-
-          & > div {
-            height: 100%;
-
-            & > img {
-              object-fit: contain;
-              width: 100%;
-              max-width: 520px !important;
-              height: 320px !important;
-            }
-          }
-        }
-
-        .slick-dots {
-          position: initial;
-        }
-      }
-    }
-
-    .item-details-data {
-      flex-basis: 200px;
-      flex-grow: 1;
-      flex-shrink: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-
-      .item-details-data-header {
-        & > span:not(:last-child) {
-          margin-right: 6px;
-
-          &::after {
-            margin-left: 6px;
-            content: "·";
-          }
-        }
-      }
-
-      .item-details-data-title {
-        margin: 0;
-        font-size: 24px;
-      }
-
-      .item-details-data-price {
-        font-size: 42px;
-      }
-    }
-
-    .item-details-description {
-      flex-basis: 100%;
-
-      .item-details-description-title {
-        line-height: 1.25em;
-        margin: 0 0 1.25em;
-      }
-
-      .item-details-description-text {
-        line-height: 1.25em;
-        margin: 0 0 1.25em;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
     }
   }
 }

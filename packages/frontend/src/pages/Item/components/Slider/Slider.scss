@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "@theme/screen" as screen;
+
+.item-page {
+  .item-details-container {
+    .item-details-slider-container {
+      flex-basis: 460px;
+      flex-grow: 1;
+      flex-shrink: 0;
+      max-width: 100%;
+
+      .item-details-slider {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 460px;
+
+        .slick-track {
+          display: flex !important;
+        }
+
+        .slick-slide {
+          width: 100%;
+          height: inherit !important;
+
+          & > div {
+            height: 100%;
+
+            & > img {
+              object-fit: contain;
+              width: 100%;
+              max-width: 520px !important;
+              height: 320px !important;
+            }
+          }
+        }
+
+        .slick-dots {
+          position: initial;
+        }
+      }
+    }
+  }
+}
