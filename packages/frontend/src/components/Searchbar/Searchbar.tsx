@@ -6,6 +6,7 @@ import Icon from "@components/Icon/Icon";
 import { ReactComponent as Search } from "@assets/icons/search.svg";
 
 import "./Searchbar.scss";
+import { useTranslation } from "react-i18next";
 
 interface SearchbarProps {
   formId?: string;
@@ -14,6 +15,7 @@ interface SearchbarProps {
 }
 
 const Searchbar = ({ formId, inputId, buttonId }: SearchbarProps) => {
+  const { t } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchParams] = useSearchParams();
   const searchValue = searchParams.get("search");
@@ -25,22 +27,25 @@ const Searchbar = ({ formId, inputId, buttonId }: SearchbarProps) => {
   return (
     <Form id={formId} className="searchbar" action="/items">
       <input
+        aria-label={t("searchbar.inputAriaLabel")}
         ref={inputRef}
         id={inputId}
         type="text"
         name="search"
         autoComplete="off"
         required
-        placeholder="¿Qué estás buscando?"
+        placeholder={t("searchbar.placeholder")}
         onInvalid={() =>
-          inputRef.current.setCustomValidity(
-            "Ingresá lo que estás buscando para que podamos ayudarte"
-          )
+          inputRef.current.setCustomValidity(t("searchbar.required"))
         }
         onInput={() => inputRef.current.setCustomValidity("")}
         defaultValue={searchValue}
       />
-      <button id={buttonId} type="submit">
+      <button
+        id={buttonId}
+        aria-label={t("searchbar.buttonAriaLabel")}
+        type="submit"
+      >
         <Icon color="#333333" size={12}>
           <Search />
         </Icon>

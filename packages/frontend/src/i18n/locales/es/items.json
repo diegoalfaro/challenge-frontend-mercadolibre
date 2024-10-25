@@ -1,0 +1,10 @@
+{
+  "description": "Resultados de la búsqueda: {{search}}",
+  "condition": {
+    "new": "Nuevo",
+    "used": "Usado"
+  },
+  "soldQuantity_one": "{{count}} vendido",
+  "soldQuantity_other": "{{count}} vendidos",
+  "freeShipping": "Envío gratis"
+}

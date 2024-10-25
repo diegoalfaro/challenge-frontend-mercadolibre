@@ -1,12 +1,11 @@
 import React, { Suspense, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
-import {
-  ItemsSearchContextProvider,
-  useItemsSearch,
-} from "@hooks/items-search";
+import { ItemsSearchContextProvider } from "@hooks/items-search";
 
 import "./Items.scss";
+import { useTranslation } from "react-i18next";
 
 const MainContainer = React.lazy(
   () => import("@components/Grid/MainContainer")
@@ -17,6 +16,7 @@ const Breadcrumb = React.lazy(
 const List = React.lazy(() => import("./components/List/List"));
 
 const Items = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const searchValue = searchParams.get("search");
@@ -29,14 +29,22 @@ const Items = () => {
 
   return (
     <Suspense>
-      <div className="items-page">
-        <MainContainer>
-          <ItemsSearchContextProvider searchValue={searchValue}>
+      <ItemsSearchContextProvider searchValue={searchValue}>
+        <Helmet>
+          <title>{searchValue}</title>
+          <meta
+            name="description"
+            content={t("items.description", { search: searchValue })}
+          />
+        </Helmet>
+
+        <div className="items-page">
+          <MainContainer>
             <Breadcrumb />
             <List />
-          </ItemsSearchContextProvider>
-        </MainContainer>
-      </div>
+          </MainContainer>
+        </div>
+      </ItemsSearchContextProvider>
     </Suspense>
   );
 };

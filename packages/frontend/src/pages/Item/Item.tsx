@@ -1,9 +1,11 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
-import { ItemContextProvider } from "@hooks/item";
+import { ItemContext, ItemContextProvider } from "@hooks/item";
 
 import "./Item.scss";
+import { useTranslation } from "react-i18next";
 
 const MainContainer = React.lazy(
   () => import("@components/Grid/MainContainer")
@@ -17,23 +19,37 @@ const Breadcrumb = React.lazy(
 );
 const ItemData = React.lazy(() => import("./components/ItemData/ItemData"));
 
+const Meta = () => {
+  const { t } = useTranslation();
+  const { item } = useContext(ItemContext);
+  const { title } = item || {};
+
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={t("item.description", { title })} />
+    </Helmet>
+  );
+};
+
 const Item = () => {
   const { itemId } = useParams();
 
   return (
     <Suspense>
-      <div className="item-page">
-        <MainContainer>
-          <ItemContextProvider itemId={itemId}>
+      <ItemContextProvider itemId={itemId}>
+        <Meta />
+        <div className="item-page">
+          <MainContainer>
             <Breadcrumb />
             <div className="item-details-container">
               <Slider />
               <ItemData />
               <Description />
             </div>
-          </ItemContextProvider>
-        </MainContainer>
-      </div>
+          </MainContainer>
+        </div>
+      </ItemContextProvider>
     </Suspense>
   );
 };

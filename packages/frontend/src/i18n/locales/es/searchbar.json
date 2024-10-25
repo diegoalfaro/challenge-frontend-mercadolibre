@@ -1,0 +1,6 @@
+{
+  "placeholder": "¿Qué estás buscando?",
+  "required": "Ingresá lo que estás buscando para que podamos ayudarte",
+  "inputAriaLabel": "Escribir búsqueda",
+  "buttonAriaLabel": "Buscar"
+}

@@ -25,6 +25,7 @@
       "@theme/*": ["./theme/*"],
       "@services/*": ["./services/*"],
       "@i18n": ["./i18n"],
+      "@i18n/*": ["./i18n/*"],
       "@assets/*": ["./assets/*"]
     }
   },

@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "@theme/screen" as screen;
+
+.home-page {
+  .home-slider-container {
+    width: 100%;
+    max-width: 100%;
+
+    .home-slider {
+      width: 100%;
+
+      .slick-track {
+        display: flex !important;
+      }
+
+      .slick-slide {
+        width: 100%;
+        height: inherit !important;
+
+        & > div {
+          height: 100%;
+
+          & > img {
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+      }
+
+      .slick-dots {
+        bottom: 12px;
+      }
+    }
+  }
+}
