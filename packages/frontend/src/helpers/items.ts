@@ -1,20 +1,23 @@
+import i18n from "@i18n";
 import { notNull } from "./commons";
 
 export const getFormattedCondition = (condition: string) => {
   switch (condition) {
     case "new":
-      return "Nuevo";
+      return i18n.t("items.condition.new");
     case "used":
-      return "Usado";
+      return i18n.t("items.condition.used");
   }
   return null;
 };
 
 export const getFormattedSoldQuantity = (soldQuantity: number) =>
-  soldQuantity ? `${soldQuantity} vendidos` : undefined;
+  soldQuantity
+    ? i18n.t("items.soldQuantity", { count: soldQuantity })
+    : undefined;
 
 export const getFormattedFreeShipping = (freeShipping: boolean) =>
-  freeShipping ? `Envío gratis` : undefined;
+  freeShipping ? i18n.t("items.freeShipping") : undefined;
 
 export const getItemDataHeaderInfo = ({
   condition,

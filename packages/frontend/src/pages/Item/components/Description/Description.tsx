@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 
 import { notNull } from "@helpers/commons";
 
@@ -9,6 +10,7 @@ import Skeleton from "./Skeleton";
 import "./Description.scss";
 
 const Description = () => {
+  const { t } = useTranslation();
   const { loading, item } = useContext(ItemContext);
 
   const { description } = item || {};
@@ -25,7 +27,7 @@ const Description = () => {
     return (
       <div className="item-details-description">
         <h2 className="item-details-description-title">
-          Descripción del producto
+          {t("item.descriptionTitle")}
         </h2>
         {description
           ?.split("\n")

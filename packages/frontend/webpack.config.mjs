@@ -30,7 +30,7 @@ export default {
         ],
       },
       {
-        test: /\.(png|jpg|jpeg)$/,
+        test: /\.(png|jpg|jpeg|webp)$/,
         use: [
           'url-loader'
         ],

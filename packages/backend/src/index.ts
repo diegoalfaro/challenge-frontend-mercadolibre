@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
 import path from "path";
 
-import { author, port } from "./config.js";
+import { author, defaultSiteId, port } from "./config.js";
 
 import {
+  getCategoriesBySiteId,
   getCategoryById,
   getFormattedItemById,
   getItemsByQuery,
@@ -12,6 +13,19 @@ import {
 const app = express();
 
 app.use(express.static("public"));
+
+app.get("/api/categories", async (req: Request, res: Response) => {
+  const siteId =
+    typeof req?.headers?.["site-id"] === "string"
+      ? req?.headers?.["site-id"]
+      : defaultSiteId;
+
+  const categories = await getCategoriesBySiteId(siteId);
+
+  res.json({
+    categories,
+  });
+});
 
 app.get("/api/items/:id", async (req: Request, res: Response) => {
   const id = req.params.id;

@@ -1,2 +1,15 @@
-.home-container {
+.home-page {
+  .shadow {
+    z-index: 9999;
+    position: relative;
+    top: -4px;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  .home-page-lists {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
 }

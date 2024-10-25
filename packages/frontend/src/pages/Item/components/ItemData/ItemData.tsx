@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 
 import { ItemContext } from "@hooks/item";
 import { getBuyURL, getItemDataHeaderInfo } from "@helpers/items";
@@ -53,6 +54,7 @@ const Content = () => {
 };
 
 const BuyButton = () => {
+  const { t } = useTranslation();
   const { loading, item } = useContext(ItemContext);
   const { id } = item || {};
 
@@ -60,7 +62,7 @@ const BuyButton = () => {
 
   return (
     <Button disabled={loading} onClick={buyHandler}>
-      Comprar
+      {t("item.buy")}
     </Button>
   );
 };

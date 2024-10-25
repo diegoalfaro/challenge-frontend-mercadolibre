@@ -20,7 +20,7 @@ const Header = () => {
     <header className="header">
       <MainContainer>
         <div className="header-container">
-          <NavLink className="logo-container" to="/">
+          <NavLink aria-label="logo" className="logo-container" to="/">
             <img className="logo" src={logoSrc} />
           </NavLink>
           <div className="searchbar-container">
