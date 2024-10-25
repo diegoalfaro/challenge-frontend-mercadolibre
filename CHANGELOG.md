@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.4.0...v1.5.0) (2024-10-25)
+
+
+### Features
+
+* **home:** pagina de inicio ([#4](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/issues/4)) ([26e0e2d](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/commit/26e0e2d355aee061e1ca4daa7c35072afd790949))
+
+
+
 # [1.4.0](https://github.com/diegoalfaro/challenge-frontend-mercadolibre/compare/v1.3.0...v1.4.0) (2024-10-25)
 
 

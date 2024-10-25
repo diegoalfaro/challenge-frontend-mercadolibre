@@ -889,17 +889,18 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@challenge-frontend-mercadolibre/backend@file:/home/dalfaro/Proyectos/personales/challenge-frontend-mercadolibre/packages/backend":
-  version "1.4.0"
+"@challenge-frontend-mercadolibre/backend@file:/home/runner/work/challenge-frontend-mercadolibre/challenge-frontend-mercadolibre/packages/backend":
+  version "1.5.0"
   resolved "file:packages/backend"
   dependencies:
     express "4.21.1"
 
-"@challenge-frontend-mercadolibre/frontend@file:/home/dalfaro/Proyectos/personales/challenge-frontend-mercadolibre/packages/frontend":
-  version "1.4.0"
+"@challenge-frontend-mercadolibre/frontend@file:/home/runner/work/challenge-frontend-mercadolibre/challenge-frontend-mercadolibre/packages/frontend":
+  version "1.5.0"
   resolved "file:packages/frontend"
   dependencies:
     i18next "23.16.3"
+    i18next-browser-languagedetector "8.0.0"
     react "18.3.1"
     react-content-loader "7.0.2"
     react-dom "18.3.1"
