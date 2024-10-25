@@ -16,7 +16,15 @@ export const getItemsByQuery = async (query: string) => {
     ?.values?.map(({ name }) => name);
 
   const items = results.map(
-    ({ id, title, sale_price, thumbnail, condition, shipping }) => ({
+    ({
+      id,
+      title,
+      sale_price,
+      thumbnail,
+      condition,
+      shipping,
+      official_store_name,
+    }) => ({
       id,
       title,
       price: {
@@ -24,6 +32,7 @@ export const getItemsByQuery = async (query: string) => {
         amount: sale_price.amount,
         decimals,
       },
+      store_name: official_store_name,
       picture: thumbnail,
       condition,
       free_shipping: shipping.free_shipping,
@@ -74,12 +83,14 @@ export const getFormattedItemById = async (id: string, secure = false) => {
     condition,
     sold_quantity,
     shipping,
+    seller_address,
   } = item;
 
   return {
     site_id,
     id,
     title,
+    place: seller_address?.search_location?.state?.name,
     price: {
       currency: currency_id,
       amount: price,

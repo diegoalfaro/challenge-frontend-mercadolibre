@@ -1,0 +1,28 @@
+.item-page {
+  .item-details-container {
+    .item-details-description {
+      width: 100%;
+      flex-basis: 100%;
+
+      .item-details-description-title {
+        line-height: 1.25em;
+        margin: 0 0 1.25em;
+      }
+
+      .item-details-description-text {
+        line-height: 1.25em;
+        margin: 0 0 1.25em;
+
+        white-space: normal;
+        text-wrap: balance;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

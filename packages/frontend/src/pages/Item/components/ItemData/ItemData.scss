@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "@theme/screen" as screen;
+
+.item-page {
+  .item-details-data {
+    flex-basis: 260px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .item-details-data-header {
+      & > span:not(:last-child) {
+        margin-right: 6px;
+
+        &::after {
+          margin-left: 6px;
+          content: "·";
+        }
+      }
+    }
+
+    .item-details-data-title {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .item-details-data-price {
+      font-size: 42px;
+    }
+  }
+}

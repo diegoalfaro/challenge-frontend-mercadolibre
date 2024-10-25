@@ -21,6 +21,7 @@ app.get("/api/items/:id", async (req: Request, res: Response) => {
     id,
     secure
   );
+
   const category = await getCategoryById(category_id);
 
   res.json({

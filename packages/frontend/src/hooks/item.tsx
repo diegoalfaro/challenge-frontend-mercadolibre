@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import itemsService from "@services/items-service";
 
@@ -38,4 +38,27 @@ export const useItem = (itemId: string) => {
   }, [itemId]);
 
   return { loading, item, category };
+};
+
+interface ItemContextValue {
+  loading: boolean;
+  item?: any;
+  category?: any;
+}
+
+export const ItemContext = React.createContext<ItemContextValue>({
+  loading: false,
+});
+
+export const ItemContextProvider = ({
+  itemId,
+  children,
+}: React.PropsWithChildren<{ itemId: string }>) => {
+  const { loading, item, category } = useItem(itemId);
+
+  return (
+    <ItemContext.Provider value={{ loading, item, category }}>
+      {children}
+    </ItemContext.Provider>
+  );
 };

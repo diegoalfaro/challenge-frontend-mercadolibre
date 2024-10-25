@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import itemsService from "@services/items-service";
 
@@ -28,4 +28,27 @@ export const useItemsSearch = (query: string) => {
   }, [query]);
 
   return { loading, items, categories };
+};
+
+interface ItemSearchContextValue {
+  loading: boolean;
+  items?: any[];
+  categories?: any[];
+}
+
+export const ItemsSearchContext = React.createContext<ItemSearchContextValue>({
+  loading: false,
+});
+
+export const ItemsSearchContextProvider = ({
+  searchValue,
+  children,
+}: React.PropsWithChildren<{ searchValue: string }>) => {
+  const { loading, items, categories } = useItemsSearch(searchValue);
+
+  return (
+    <ItemsSearchContext.Provider value={{ loading, items, categories }}>
+      {children}
+    </ItemsSearchContext.Provider>
+  );
 };

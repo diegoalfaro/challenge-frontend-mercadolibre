@@ -14,6 +14,8 @@
     #{string.unquote($breakpoint + "Max")}: $value;
   }
   bgColor: colors.$bg-color;
+  successColor: colors.$success-color;
+  textColor: colors.$text-color;
   primaryColor: colors.$primary-color;
   secondaryColor: colors.$secondary-color;
 }

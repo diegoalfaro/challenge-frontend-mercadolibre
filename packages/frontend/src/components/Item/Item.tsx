@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import Icon from "@components/Icon/Icon";
 import { currencyFormatter } from "@helpers/numbers";
+import * as theme from "@theme/theme.module.scss";
 
-import { ReactComponent as Check } from "@assets/icons/check.svg";
+import { ReactComponent as CircleCheck } from "@assets/icons/circle-check.svg";
 
 import "./Item.scss";
 
@@ -17,11 +18,10 @@ interface ItemProps {
     amount: number;
   };
   imgSrc: string;
-  place: string;
-  freeShipping?: boolean;
+  officialStore?: string;
 }
 
-const Item = ({ id, title, imgSrc, price, place, freeShipping }: ItemProps) => {
+const Item = ({ id, title, imgSrc, price, officialStore }: ItemProps) => {
   const navigate = useNavigate();
   const onClick = () => navigate(`/items/${id}`);
 
@@ -36,14 +36,14 @@ const Item = ({ id, title, imgSrc, price, place, freeShipping }: ItemProps) => {
       <div className="item-grid">
         <div className="item-price">
           {priceFormatted}
-          {freeShipping && (
-            <Icon color="green" size={16}>
-              <Check />
+          {officialStore && (
+            <Icon color={theme.successColor} size={16}>
+              <CircleCheck />
             </Icon>
           )}
         </div>
         <div className="item-title">{title}</div>
-        <div className="item-place">{place}</div>
+        <div className="item-place">{officialStore}</div>
       </div>
     </div>
   );
